@@ -22,3 +22,23 @@ for record in live_birth_records:
         first_and_others['others'].append(record)
         
 print '# of first: %s, # of others: %s' % (len(first_and_others['first']), len(first_and_others['others']))
+
+# Compare the pregnancy rate
+mean_first, mean_others = 0, 0
+
+sum_first = 0
+for record in first_and_others['first']:
+    sum_first += record.prglength
+    
+mean_first = float(sum_first) / len(first_and_others['first'])
+
+print 'Average pregnancy length (first)', mean_first
+    
+sum_others = 0
+for record in first_and_others['others']:
+    sum_others += record.prglength
+    
+mean_others = float(sum_others) / len(first_and_others['others'])
+
+print 'Average pregnancy length (others)', mean_others
+    
